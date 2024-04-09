@@ -8,9 +8,10 @@ conn = psycopg2.connect(
     user="drugbank",
     password="drugbank",
     port=5433)
-
-drugbanks = ['5.0.9']
-# drugbanks = ['3.0','4.1','4.2','4.3','4.5.0','5.0.0','5.0.1','5.0.2','5.0.3','5.0.4','5.0.5','5.0.6','5.0.7','5.0.8','5.0.9','5.0.10','5.1.0','5.1.8']
+print(conn)
+last_version = '5.1.11'
+drugbanks = ['5.1.10', '5.1.11']
+# drugbanks = ['3.0','4.1','4.2','4.3','4.5.0','5.0.0','5.0.1','5.0.2','5.0.3','5.0.4','5.0.5','5.0.6','5.0.7','5.0.8','5.0.9','5.0.10','5.1.0',last_version]
 # drugbanks = ['4.1','4.2','4.3','4.5.0','5.0.0','5.0.1','5.0.2','5.0.3','5.0.4']
 # drugbanks = ['5.0.9','5.0.10','5.1.0']
 
@@ -28,7 +29,7 @@ for z in range(0, len(drugbanks)):
     # close the communication with the PostgreSQL
     cursor.close()
 
-    #     print(drugs)
+    print(drugs)
     df_drugs = pd.DataFrame(drugs)
     # print(df_drugs[0].to_numpy())
     drug_nodes = df_drugs[0].to_numpy()
